@@ -11,7 +11,7 @@ module Taggable
       end
     end
 
-    def tag(opts)
+    def tag!(opts)
       raise("You need to specify tags using :with") unless opts.has_key?(:with)
 
       tags   = opts[:with].is_a?(Array) ? opts[:with] : [opts[:with]]
