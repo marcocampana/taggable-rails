@@ -17,8 +17,10 @@ module Taggable
       tags   = opts[:with].is_a?(Array) ? opts[:with] : [opts[:with]]
       tagger = opts[:by]
 
+      existing_taggings = taggings.pluck(:tag_id)
+
       tags.each do |tag|
-        taggings << ::Tagging.new(:tag => tag, :tagger => tagger)
+        taggings << ::Tagging.new(:tag => tag, :tagger => tagger) unless existing_taggings.include?(tag.id)
       end
     end
 
