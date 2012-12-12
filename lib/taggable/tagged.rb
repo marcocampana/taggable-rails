@@ -20,5 +20,10 @@ module Taggable
         taggings << ::Tagging.new(:tag => tag, :tagger => tagger)
       end
     end
+
+    def remove_tags!(tags)
+      taggings.where(:tag_id => tags).destroy_all
+    end
+
   end
 end
