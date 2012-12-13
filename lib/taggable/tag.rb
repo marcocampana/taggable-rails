@@ -7,7 +7,7 @@ module Taggable
 
       belongs_to :tag_group
       belongs_to :tagger, :polymorphic  => true if has_tagger?
-      has_many   :taggings
+      has_many   :taggings, :dependent => :destroy
 
       validates :name,
                 :presence   => true,
