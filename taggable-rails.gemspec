@@ -5,6 +5,7 @@ Gem::Specification.new do |gem|
   gem.authors       = ["Marco Campana"]
   gem.email         = ["m.campana@gmail.com"]
   gem.description   = %q{ActiveRecord tagging library}
+  gem.summary       = "ActiveRecord tagging library"
   gem.homepage      = "http://xterm.it"
 
   #gem.files         = Dir.glob("{bin,lib,vendor}/**/*") + %w(LICENSE README.md)
