@@ -3,7 +3,11 @@ module Taggable
     extend ActiveSupport::Concern
 
     included do
-      has_many :taggings, :as => :tagged, :dependent => :destroy, :include => :tag
+      has_many :taggings,
+               -> { includes(:tag) },
+               as: :tagged,
+               dependent: :destroy
+
       has_many :tags, :through => :taggings do
         def tagged_by(tagger)
           where(:taggings => {:tagger_id => tagger.id, :tagger_type => tagger.class.name})
